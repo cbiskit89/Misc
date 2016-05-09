@@ -1,0 +1,201 @@
+/*
+  Filename   : Array.h
+  Author     : Cory Miller
+  Course     : CSCI 362-01
+  Assignment : Array
+  Description: Array class, our implementation of a list ADT 
+                 with random access and dynamic resizing
+*/   
+
+/************************************************************/
+// Macro guard to prevent multiple inclusions
+
+#ifndef ARRAY_H
+#define ARRAY_H
+
+/************************************************************/
+// System includes
+
+#include <cstdlib>
+#include <algorithm>
+#include <cstdio>
+
+/************************************************************/
+// Local includes
+
+/************************************************************/
+// Using declarations
+
+using std::ostream;
+using std::fill;
+using std::swap;
+using namespace std;
+
+/************************************************************/
+
+template <typename T>
+class Array 
+{
+public:
+  
+  typedef T          value_type;
+  // Iterators are just pointers to objects of type T
+  typedef T*         iterator;
+  typedef const T*   const_iterator;
+
+  typedef T&         reference;
+  typedef const T&   const_reference;
+  typedef size_t     size_type;
+  typedef ptrdiff_t  difference_type;
+
+  // Initialize an empty Array
+  Array ()
+    : m_size (0), m_capacity (0), m_array (NULL)
+  { }
+
+  // Initialize an Array of size "pSize", with each element
+  //   set to "value"
+  explicit Array (size_t pSize, const T& value = T ())
+    : m_size (pSize), m_capacity (pSize), m_array (new T[m_size])
+  {
+    fill (m_array, m_array + m_size, value);
+  }
+
+  // Initialize an Array from the range [first, last)
+  Array (const_iterator first, const_iterator last);
+  
+  // Initialize this object from "a"
+  Array (const Array &a)
+  {
+    operator= (a);
+  } 
+  
+  // Release allocated memory
+  ~Array ()
+  {
+    delete[] m_array;
+  }
+  
+  // Assign "a" to this object
+  //   Watch for self-assignment
+  Array&
+  operator= (const Array& a)
+  {
+    /*
+    std::swap (m_size, a.m_size);
+    std::swap (m_capacity, a.m_capacity);
+    std::swap (m_array, a.m_array);
+    */
+
+    
+
+    if (this != &a)
+    {
+      m_size = a.m_size;
+      m_capacity = a.m_capacity;
+      m_array = new T[m_size];
+
+      for (size_t i = 0; i < m_size; ++i)
+      {
+	m_array[i] = a.m_array[i];
+      }
+    }
+    return *this;
+  }
+
+  size_t
+  size () const
+  {
+    return m_size;
+  }
+
+  size_t
+  capacity () const
+  {
+    return m_capacity;
+  }
+
+  T&
+  operator[] (size_t index)
+  {
+    return m_array[index];
+  }
+
+  const T&
+  operator[] (size_t index) const
+  {
+    return m_array[index];
+  }
+
+  void
+  push_back (const T& item)
+  {
+
+  }
+
+  void
+  pop_back ()
+  {
+
+  }
+
+  // Reserve capacity for "space" elements -- "space" must be 
+  //   > capacity -- this doesn't change the size 
+  //   Invoking methods double capacity when extra space is needed
+  void
+  reserve (size_t space)
+  {
+    if (space < m_capacity)
+    {
+      cout << "Error, space to reserve must be greater than capacity." << endl;
+      return;
+    }
+
+    m_capacity += space;
+  }
+
+  void
+  resize (size_t newSize, const T& defValue = T ());
+
+  // Insert "item" before "pos", and return iterator referencing "item"
+  iterator       insert (iterator pos, const T& item);
+  // Remove element at "pos", and return iterator referencing next element
+  iterator       erase  (iterator pos);
+
+  iterator       begin ()
+  {
+    return m_array;
+  }
+  const_iterator begin () const
+  {
+    return m_array;
+  }
+
+  // Return pointer to element one past last
+  iterator       end ()
+  {
+    return &m_array[m_size];
+  }
+  const_iterator end () const
+  {
+    return &m_array[m_size];
+  }
+
+private:
+
+  size_t m_size;
+  size_t m_capacity;
+  T*     m_array;
+
+};
+
+/************************************************************************/
+// Free functions associated with class
+
+template <typename T>
+ostream&
+operator<< (ostream& output, const Array<T>& a);
+
+#endif
+
+/************************************************************************/

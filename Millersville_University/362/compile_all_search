@@ -1,0 +1,4 @@
+g++ -Wall -std=c++11 Binary_Search_Best.cc -o Binary_Search_Best
+g++ -Wall -std=c++11 Binary_Search_Worst.cc -o Binary_Search_Worst
+g++ -Wall -std=c++11 Linear_Search_Best.cc -o Linear_Search_Best
+g++ -Wall -std=c++11 Linear_Search_Worst.cc -o Linear_Search_Worst

@@ -1,0 +1,6 @@
+Output:
+Total Time Taken: 46102
+Total Time Taken: 49131
+Total Time Taken: 1.2813e+06
+
+First time is for the static array. Compared to the other two it was the fastest to run through 10,000,000 times. However the difference between the static and the stack was hardly noticable. This is because the arrays weren't large enough to notice a difference. In much larger arrays it would be a more noticable difference because once a static array's memory location is created, it remains there througout the entire program. The stack array will be removed after the function exits each time. The third time is the array declared on the heap. This took much longer to run through because it's created at runtime. 

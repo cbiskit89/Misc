@@ -1,0 +1,6 @@
+40   Bill	Clinton	 3.75
+60   Bill   Gates    1.5
+30   Barack	Obama	 3.1
+10   George	Bush	 2.2
+50   Brian	Williams 1.9
+20   Larry	King	 3.2

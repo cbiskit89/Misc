@@ -1,0 +1,92 @@
+import java.util.Scanner;
+
+public class TestArrayQueue 
+{
+	public static void main(String[] args) 
+	{
+		Scanner input = new Scanner(System.in);
+	    String inputText = "";
+	    String encodedText = "";
+	    int[] displacement = new int[5]; 
+	    char ch;
+	    QueueClass q1 = new QueueClass(50);
+	    int k = 0;
+	    int i = 0;
+	    int integerToChar = 0;
+	    char newChar;
+	    
+	    
+	    //Input text from user to encode
+	    System.out.print("Enter text to encode: ");
+	    inputText = input.nextLine();
+	    System.out.println("");
+	    
+	    //Restate user's statement
+	    System.out.print("You entered = " + inputText);
+	    System.out.println("");
+	    /* encode */
+	    
+	    
+	    //Obtain 5 displacement values
+	    for (i = 0; i < 5; i++)
+	    {
+		    System.out.print("Enter distance -25 to 25: ");
+		    displacement[i] = input.nextInt();
+		    System.out.println("");
+	    }
+	    
+	    for (i = 0; i < inputText.length(); i++)
+	    {
+	    	ch = inputText.charAt(i);
+	        q1.enqueue((int)ch);
+	    }
+	    
+	    while (!q1.isEmpty())
+	    {
+	    	integerToChar = q1.dequeue();
+	    	ch = (char)integerToChar;
+	    	
+	    	if ((int)ch == 32)
+	    		k -= 1;
+	    	
+	    	if ((int)ch > 64 && (int)ch < 91)
+			{
+				integerToChar = (int)ch;
+		    	
+				if (((int)ch > 64) && ((int)ch < 91))
+					integerToChar += displacement[k];
+		    	if (integerToChar > 90)
+		    		integerToChar -= 26; // wrap around factor
+		    	if (integerToChar < 64)
+		    		integerToChar += 26;
+		    	
+		    	newChar = (char)integerToChar;
+			}
+			else if ((int)ch > 96 && (int)ch < 123)
+			{
+				integerToChar = (int)ch;
+		    		
+		    	if ((integerToChar > 96) && (integerToChar < 123))
+		    		integerToChar += displacement[k];
+		    	
+		    	if (integerToChar > 122)
+		    		integerToChar -=26; // wrap around factor
+		    	if (integerToChar < 95)
+		    		integerToChar += 26;
+		    	
+		    	newChar = (char)integerToChar;
+			}
+			else
+				newChar = ch;
+	    	
+	    	encodedText += newChar;
+	    	
+	    	k++;
+	    	
+	    	if (k >= 5)
+	    		k -= 5;
+	    }
+	    
+	    System.out.println("Encoded Text: " + encodedText);
+	}
+}

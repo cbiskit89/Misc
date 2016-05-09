@@ -1,0 +1,21 @@
+#include <iostream>
+using namespace std;
+
+int function();
+int x;
+
+int main()
+{
+	cout << "\nx = " << function();
+	cin.get();	
+}
+
+int function()
+{
+	x = 21;
+	cout << "x = " << x;
+	int x;
+	x = 42;
+
+	return x;
+}

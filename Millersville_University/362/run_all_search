@@ -1,0 +1,4 @@
+time ./Binary_Search_Best
+time ./Binary_Search_Worst
+time ./Linear_Search_Best
+time ./Linear_Search_Worst

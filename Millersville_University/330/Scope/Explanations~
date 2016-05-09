@@ -1,0 +1,8 @@
+Part 1
+------
+In C, a global variable is needed to establish x in the first line of the function. The line "x = 21;" is stored to the global variable. Then a local variable x is created within the function, which in my program is returned to main function and printed out to the screen.
+
+In C++, the exact same method was used to make the working program. A global variable x was created for the first line of the code, then a local variable x was created in function which outputed back to the cout command line in the main function.
+
+Part 2
+------

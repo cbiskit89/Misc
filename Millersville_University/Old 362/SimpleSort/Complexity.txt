@@ -1,0 +1,119 @@
+		5000	10000	 20000
+--------------------------------------
+bubble		1.084	4.324	17.270
+selection	1.032	4.132	16.581
+insertion	0.493	1.969	 7.824
+
+For bubble, as the size of the vector  increases, the total run time of the program grows at a rapid rate. When N doubles, the time to sort N increases by around 4 times the previous time.
+
+Similar results were found with selection. Though marginally faster, the same growth rate of increasing N by double increased the time to sort by around 4 times the previous time.
+
+Insertion, initially took less time to complete than the other sorting methods, but its growth rate was also around quadruple the previous time for every time N's size was doubled.
+
+================================================
+Algorithm Name: Bubble Sort
+
+Input: A vector of size N containing the integers to sort
+
+Operations Counted: Comparisons (v[j] > v[j + 1])
+
+Algorithm Code:
+
+121 for (size_t i = N - 1; i >= 1; --i)
+123   for (size_t j = 0; j < i; ++j)
+125     if (v[j] > v[j + 1])
+127       swap (v[j], v[j + 1]);
+
+Algorithm Description:
+
+Compares j element to the next element. If the next element is larger the current j element the integers are swapped. The inner loop runs until the largest remaining element is placed at v[i], then the outer loop decrements and the inner loop repeats until vector is sorted.
+
+Analysis:
+
+The inner loop (line 123) executes until j = i. The outer loop (line 121) executes from N-1 to 1, so the total number of comparisons is:
+
+T(N) = Sum[i=1:N-1](i) 
+
+     = 1 + 2 + ... + (N-2) + (N-1) 
+
+     = (N-1)(N) / 2 
+
+     = 1/2 N^2 – 1/2 N 
+
+     = O(N^2)
+
+Bubble sort is quadratic.
+================================================
+================================================
+Algorithm Name: Selection Sort
+
+Input: A vector of size N containing the integers to sort
+
+Operations Counted: Comparisons (v[indexToSwitch] > v[j])
+
+Algorithm Code:
+
+148 for (size_t i = 0; i < N; ++i)
+150   indexToSwitch = i;
+152   for (size_t j = i + 1; j < N; ++j)
+154     if (v[indexToSwitch] > v[j])
+156	  indexToSwitch = j;
+160   swap (v[i], v[indexToSwitch]);
+
+Algorithm Description:
+
+Finds the element of the lowest value, starting at v[i]. A separate variable, indexToSwitch is used to track the current lowest value of the vector. The loop on line 152 runs from index i + 1 to the end of the vector. By the time is completes it will have the index of the lowest remaining value, which it places at v[i].
+
+Analysis:
+
+The inner loop, line 152, runs i + 1:N-1 times. The outer loop, line 148, runs N times.
+
+T(N) = Sum[i=1:N-1](N) 
+
+     = (N-1) + (N-2) + ... 2 + 1 
+
+     = (N-1)(N) / 2 
+
+     = 1/2 N^2 – 1/2 N 
+
+     = O(N^2)
+
+Therefore, selection sort is also quadratic.
+================================================
+================================================
+Algorithm Name: Insertion Sort
+
+Input: A vector of size N containing the integers to sort
+
+Operations Counted: Comparisons (elementToPlace < v[indexToPlace - 1])
+
+Algorithm Code:
+
+181 for (size_t i = 1; i < N; ++i)
+183   elementToPlace = v[i];
+184   indexToPlace = i;
+186   while (indexToPlace - 1 >= 0 && elementToPlace < v[indexToPlace - 1])
+188     v[indexToPlace] = v[indexToPlace - 1];
+189     indexToPlace -= 1;
+191   v[indexToPlace] = elementToPlace;
+
+Algorithm Description:
+
+Checks to see if the value in the vector at indexToPlace is greater than the value before it. If it is, then it swaps those values. If it swaps the values the current indexToPlace does not move. This continues until the lowest value enters the v[0] position, then the outer loop increments until the vector is sorted.
+
+Analysis:
+
+In the worst case scenario, the vector is sorted in descending order. Therefore, line 186 is found true N - i times. The outer loop, line 181, will occur N times. Since the outer loop is linear, we can infer that line 186 will occur (N-1) times the first pass, followed by (N-2) and so forth until N - i = 1.
+
+T(N) = Sum(i=1:N-i)(N)
+
+     = (N-1) + (N-2) ... + 2 + 1
+
+     = (N-1)(N)/2
+
+     = 1/2(N^2) - 1/2N
+
+     = O(N^2)
+
+In the worst case scenario, insertion sort is quadratic.
+================================================

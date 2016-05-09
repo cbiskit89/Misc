@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <TextView 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:textSize="28sp"
+        android:text="@string/grade_add_header" />
+    
+    <EditText 
+        android:id="@+id/grade_add_grade_name"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/grade_add_name_hint"
+        android:singleLine="true" />
+    
+    <EditText 
+        android:id="@+id/grade_add_grade_value"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/grade_add_grade_value"
+        android:inputType="numberDecimal" />
+    
+    <EditText
+        android:id="@+id/grade_add_grade_total"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/grade_add_grade_total"
+        android:inputType="numberDecimal" />
+    
+    <Button 
+        android:id="@+id/grade_add_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="@string/grade_add_btn_text" />
+    
+</LinearLayout>

@@ -1,0 +1,35 @@
+1) Java includes many array features into a built in array class. Things that were possible
+   in Java such as checking the size of an array are not possible in C++, so if an array was
+   passed into a function, and you need to scan through the array you should pass the size
+   as well. Java compilers also prevent programmers from going out of bounds, whereas C++
+   will allow you to do so.
+
+2) Structures and unions can be used similar to how classes in Java are used, but the
+   difference is structures and unions in C++ can be used without creating a new class.
+   They can be declared within the function that needs to use them. Unions can also prevent
+   more memory than is needed from being used since they allow us to create a structure
+   with one data type or another, but not both.
+
+3) C++ does not use garbage collection. Programmers must use the delete operator to keep
+   the program from using far more memory than it has to, which can be a huge problem.
+
+4) Unlike Java, C++ allows programmers to pass by reference (or const-reference). This could
+   be helpful to us if we need a function to change a value to the variable being passed in
+   the original function that uses that variable. Java wouldn't allow us to change that
+   because it could be considered dangerous or unsafe depending on how the variable is
+   changed when it's being used by multiple functions. Passing by const-reference is also
+   something that C++ allows that Java doesn't and could make programs more efficient by
+   saving memory since there won't be a copy of a variable made.
+
+5) Class members in Java are declared public or private individually. In C++, they are
+   grouped. C++ also uses header files to show what functions and variables will be used in
+   the class.
+
+C++ is a good language for learning data structures and algorithms because it often times
+forces the programmer to be aware of how memory is managed within our program as we try 
+to find the most efficient solution to a problem.
+
+Another good reason to use C++ is that it doesn't have as many restrictions as other
+programming languages. C++ allows the programmer to run programs when the code may have
+errors. Java would tell us not to do that, but C++ makes you find the solution yourself,
+which is an important part of the learning curve in programming.

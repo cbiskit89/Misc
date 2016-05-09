@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Delete resource &apos;CircularQueue&apos;" deleteContents="false" description="Delete resource &apos;CircularQueue&apos;" element1="/CircularQueue" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1289310021126"/>&#x0A;<refactoring comment="Delete resource &apos;testCircularQueue&apos;" deleteContents="false" description="Delete resource &apos;testCircularQueue&apos;" element1="/testCircularQueue" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1289310028994"/>
+</session>

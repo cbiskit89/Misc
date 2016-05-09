@@ -1,0 +1,55 @@
+import java.util.Scanner;
+import java.util.Stack;
+import java.util.StringTokenizer;
+
+public class PostFixEvaluation 
+{
+	public static void main (String[] args)
+	{
+		Scanner input = new Scanner(System.in);
+		Stack<String> stack = new Stack<String>();
+		String postFixInput, postFixEval, prevOper, output = null;
+		char ch, ch2;
+		
+		System.out.print("Enter Post-Fix Expression (seperate with spaces): ");
+		postFixInput = input.nextLine();
+		
+		StringTokenizer a = new StringTokenizer(postFixInput);
+		
+		while (a.hasMoreTokens())
+		{
+			postFixEval = a.nextToken();
+			ch = postFixEval.charAt(0);
+			prevOper = stack.pop();
+			ch2 = prevOper.charAt(0);
+			
+			switch (ch)
+			{
+			case '+':
+			case '-':
+			{
+				if (ch2 == '*')
+					stack.push(postFixEval);
+				else
+				{
+					stack.pop();
+					output += postFixEval;
+				}
+				break;
+			}
+				
+			case '*':
+			{
+				stack.pop();
+				output += postFixEval;
+				break;
+			}
+			default:
+				output += postFixEval;
+				break;
+			}
+		}
+		
+		System.out.println("Post-Fix Expression is: " + output);
+	}
+}

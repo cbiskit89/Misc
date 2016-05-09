@@ -1,0 +1,44 @@
+Cory Miller
+Homework 1
+
+Differences between Java and C++
+================================
+1. Java compiles into Java bytecode that is run on a Java virtual machine, such as JVM or Dalvik.
+   Presumably, as long as the JVM behaves similarly on various architectures, then Java code
+   should run without having to compile it based on the architecture. Oracle refers to this as
+   "write once, run anywhere". C++ compiles to the native machine code on the target system 
+   instruction set, such as x86. The C++ code is supposed to be portable, but the executables are
+   platform specific, so it would need to be compiled to a specific platform using libraries for
+   that platform.
+
+2. Java does not provide native support for unsigned arithmetic, although there are workarounds.
+   One such workaround I saw is that developers will use a larger data type (e.g. int to long) 
+   and then chop off the extra bits. This seems like it would be slower and more difficult to debug
+   compared to using the C++ unsigned integer data types.
+
+3. C++ uses pass-by-reference, pass-by-const-reference, and pass-by-value for parameters. Java uses
+   pass-by-value. I did find that Objects in Java are passed as references and those references are
+   passed by value. There seemed to be a lot of back and forth about this, but it seemed that the
+   function couldn't change the original object and that the function object only contained a copy
+   of the original. C++ allows references to be passed so changes can be made to the original variable,
+   and it also allows for constant references to be passed so that the value can be read but not changed.
+
+4. Java does not allow operator overloading. For programs with user built types, C++ might be a better
+   language if operator overloading would need to be done. For example, sometimes operator overloading 
+   can be used to create shorthands for sorting a struct or class.
+
+5. Java handles garbage collection for you. This can make programming simpler at times, because time does
+   not need to be spent on freeing memory and destorying objects. C++ doesn't do this for you, but that can
+   be beneficial in some instances as well. By leaving garbage collection to the program, the code can be
+   optimized specifically for the application. Like many of the above instances, there seems to be a case
+   and use for both methods depending on what your application needs to do. If the program needs to be
+   maximized for efficiency C++ might be the better option.
+
+
+Three programs in C++
+=====================
+1. Chromium
+2. Microsoft Office
+3. Adobe Reader
+
+There are a lot of reasons that these programs are written in C++. Financially, these programs have also been around for more than a decade. It wouldn't make a lot of sense for them to be rewritten. But technically, these are large complex programs, and C++ provides flexibility that could be esstential to making them run efficiently. They allow the programmer closer access to the hardware without using assembly language. Specifically for web browsers, some reading pointed towards C++ as being able to render pages and Javascript very fast.

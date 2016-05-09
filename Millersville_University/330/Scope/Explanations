@@ -1,0 +1,5 @@
+In C, I used a global variable x. It's scope ranged from the start of the program until the local variable x is declared in my function. Once the function is exited, x refers again to the global variable.
+
+In C++, a global variable was also used and ended with the same result. the x=21 was assigned to the global x and the x=42 was assigned to the local variable and after the function was exited and the program returned to main the global variable was still 21.
+
+When I tried to compile the C# version of the program Visual Studio 2010 wouldn't run the program. Without a global variable it gave me an error saying that x cannot be assigned a value before it's declared. If I tried to create a global variable, the error was there could not be 2 variables named x. This would mean that the scope of the global variable x persisted throughout the entire program even after the local variable was declared.
