@@ -1,0 +1,44 @@
+Built-in Functions:
+  *-print
+    -Use , to concatenate multiple strings with var in middle with 1 print
+    -Use + to concatenate multiple variable strings together
+    -Use % sign after quotes in combination with %r (raw), %s (string)
+      or %d (decimal)
+    -Use """ or ''' to start or end a multiline print
+  *-raw_input()
+    -accept input from user
+    -can accept string as prompt in function call
+  *-open()
+    -open file
+    -default is read-only
+    -parameters can allow writing to file
+    -set a variable equal to open(filename)
+  *-read()
+    -call on the variable that you set equal to open(filename)
+    -print file.read() to display the contents
+  *-close()
+    -always close a file when you're done with it
+  *-write()
+    -Format file.write(contents)
+  *-exists()
+    -Check system for file
+  *-len()
+    -length of string
+  *-seek()
+    -return to start of file
+
+Special Characters:
+  # - Start a comment
+  \n - new line escape sequence
+  \t - tab escape sequence
+  \\ - backslash escape sequence
+
+Misc.:
+  from sys import argv
+    -allows python to accept parameters from the console
+  from os.path import exists
+    -check to see if the file exists using exists(file)
+
+Formatting:
+  Functions - def function_name(param_a, param_b):
+    -indent next like by four spaces
